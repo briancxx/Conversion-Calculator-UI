@@ -35,6 +35,10 @@ class ConverterViewController: UIViewController {
     @IBAction func ConverterButtonPressed(_ sender: Any) {
         let actionSheet = UIAlertController(title: "Choose Converter", message: nil, preferredStyle: .actionSheet)
         
+        actionSheet.popoverPresentationController?.sourceView = self.view
+        actionSheet.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.maxY, width: 0, height: 0)
+        actionSheet.popoverPresentationController?.permittedArrowDirections = []
+        
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("fahrenheit to celcius", comment: "Default action"), style: .default, handler: { action in
                 self.setConversion(self.converterTypes[0])
         }))
